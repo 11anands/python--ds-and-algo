@@ -113,3 +113,33 @@ Takes more memory, not suitable for phone or embedded systems
 Recursion can be slow
 """
 
+# How to write recursion in 3 steps?
+
+# Factorial:
+# Step 1 = Recursive case - The flow
+# import sys
+# sys.setrecursionlimit(1)
+def factorial(n):
+    print(n)
+    return n * factorial(n-1)
+
+# factorial(5)
+
+# Step 2 = Base Case - The stopping criteria
+def factorial2(n):
+    if n in [0,1]:
+        return 1
+    else:
+        return n * factorial2(n-1)
+
+# print(factorial2(10))
+
+# Step 3 = Unintentional case - the constant
+def factorial3(n):
+    assert n >= 0 and int(n) == n, "The number must be positive integer"
+    if n in [0, 1]:
+        return 1
+    else:
+        return n * factorial3(n-1)
+
+print(factorial3(-10))
